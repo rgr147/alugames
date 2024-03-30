@@ -1,13 +1,12 @@
 function alterarStatus(numero){
     let id = `game-${numero}`;
-
-    let tagLi = document.getElementById(id) 
-    let tagA = tagLi.querySelector('a');
-    tagA.classList.add('dashboard__item__button');
-    tagA.classList.add('dashboard__item__button--return');
-    tagA.innerHTML = 'Devolver';
-    
-    let tagDiv = tagLi.querySelector('div');
-    tagDiv.classList.add('dashboard__item__img');
-    tagDiv.classList.add('dashboard__item__img--rented');   
+    if(document.getElementById(id).querySelector('a').classList.contains('dashboard__item__button--return')){
+        document.getElementById(id).querySelector('div').classList.remove('dashboard__item__img--rented');
+        document.getElementById(id).querySelector('a').classList.remove('dashboard__item__button--return');
+        document.getElementById(id).querySelector('a').innerHTML = 'Alugar';
+    } else {
+        document.getElementById(id).querySelector('div').classList.add('dashboard__item__img--rented');
+        document.getElementById(id).querySelector('a').classList.add('dashboard__item__button--return');
+        document.getElementById(id).querySelector('a').innerHTML = 'Devolver';
+    }
 }
